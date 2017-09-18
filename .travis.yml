@@ -1,5 +1,8 @@
 sudo: true
 
+install:
+  - curl -sSL https://get.docker.com/ | sh -xe
+
 script:
   - docker build -t $PLUGIN_NAME:$(git describe --always) .
   - mkdir -p ./plugin/rootfs
