@@ -5,7 +5,7 @@ install:
 
 script:
   - docker -t $PLUGIN_NAME:$(git describe --always) .
-	- mkdir -p ./plugin/rootfs
+  - mkdir -p ./plugin/rootfs
   - docker export $PLUGIN_NAME:$(git describe --always) | tar -x -C ./plugin/rootfs
   - mv ./plugin/rootfs/tmp/config.json ./plugin
   - docker plugin create $PLUGIN_NAME:$(git describe --always) ./plugin
