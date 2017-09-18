@@ -4,7 +4,7 @@ install:
   - curl -sSL https://get.docker.com/ | sh -xe
 
 script:
-  - docker -t $PLUGIN_NAME:$(git describe --always) .
+  - docker build -t $PLUGIN_NAME:$(git describe --always) .
   - mkdir -p ./plugin/rootfs
   - docker export $PLUGIN_NAME:$(git describe --always) | tar -x -C ./plugin/rootfs
   - mv ./plugin/rootfs/tmp/config.json ./plugin
