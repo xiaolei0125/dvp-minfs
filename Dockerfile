@@ -11,7 +11,7 @@ ENV GOPATH=/go
 ENV GITPATH=$GOPATH/src/github.com/minio
 
 # build development container
-ENV STAGE1=20170916-1
+ENV STAGE1=20180110-1
 
 RUN set -eux; \
 	apk add --no-cache \
